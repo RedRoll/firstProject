@@ -1,0 +1,1784 @@
+/* for all */
+
+* {
+    box-sizing: border-box;
+}
+
+body, h1, h2, p, h3, h4 {
+    margin: 0;
+    padding: 0;
+}
+
+
+/* header */
+
+
+header {
+    background-image: url(/img/mogo_logo_01.jpg.png);
+    background-size: cover;
+    height: 1000px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-width: 1920px;
+}
+.main-block {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.container_2 {
+    flex: 1 1 auto;
+    align-self: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+/* standart width / center block */
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+} 
+
+.modified-container {
+    margin: 0 auto;
+    max-width: 1920px;
+}
+
+/* inside block header */
+
+.header {
+    display: flex;
+    flex-direction: row;
+    flex-flow: nowrap;
+    justify-content: space-between;
+    
+    padding-top: 26px;
+}
+
+/* logo */
+
+.logo {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    color: #ffffff;
+    font-size: 30px;
+}
+
+/* right-side navbar */
+
+nav {
+    display: flex;
+    flex-direction: row;
+    flex-flow: nowrap;
+    align-items: flex-end;
+}
+
+/* links of right-side navbar */
+
+.nav__link {
+    text-decoration: none;
+    margin-right: 52px;
+    color: #f9e0e0;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    text-transform: uppercase;
+    transition: color .2s linear;
+    position: relative;
+}
+
+.nav__link::after {
+/* ВАЖНО!!! нужно не забывать писать свойство content: ""; для псевдоэлемента,
+ибо сам контент не будет отображатся (даже если в том свойстве ничего не прописано, оставляем
+его пустым) */
+    content: "";
+/* Что значит - будет находится после самого лемента внизу, при line (стандартном значении)
+полоска бы разместилась после элемента */
+    display: block;
+ /* При display:none свойство transition не будет работать, можно заменить его на opacity
+ для достижения желаемого эффекта */
+    /* display: none; */
+    opacity: 0;
+    position: absolute;
+    top: 100%;
+    width: 100%;
+    height: 3px;
+    margin-top: 12px;
+    background-color: #f7cb88;
+    transition: .7s;
+}
+
+.nav__link:hover::after {
+    display: block;
+    opacity: 1;
+}
+
+.nav__link:hover {
+    color: #f7cb88;
+}
+
+
+/* .title__main:after {
+    width: 20px;
+    height: 5px;
+    background-color: black;
+} */
+
+/* inside block main content */
+
+.main__header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.suptitle__main {
+    font-family: 'Kaushan Script', cursive;
+    font-size: 72px;
+    color: #ffffff;
+    
+}
+
+.title__main {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 150px;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-align: center;
+    color: #ffffff;
+    line-height: 140px;
+    
+}
+
+.mogo__title {
+    padding-left: 15px;
+}
+
+.line__main {
+    width: 64px;
+    height: 4px;
+    background-color: #ffffff;
+    margin-top: 37px;
+    margin-bottom: 50px;
+}
+
+input[type="button"] {
+    color: #ffffff;
+    background-color: transparent;
+    text-transform: uppercase;
+    padding: 10px 30px;
+    border: 4px solid white;
+    border-style: solid;
+    cursor: pointer;
+}
+
+input[type="button"]:hover {
+    background-color: rgb(253, 153, 59);
+    transition-duration: 1s;
+}
+
+/* inside row-bottom (inside block footer) */
+
+.row-bottom__header {
+    display: flex;
+    flex-direction: row;
+    flex-flow: nowrap;
+    justify-content: space-between;
+    color: #faf4dc;
+    font-size: 16px;
+    text-transform: uppercase;
+    font-family: 'Montserrat', sans-serif;
+    
+}
+
+.item__row-bottom {
+    flex-basis: 280px;
+    border-top: 4px solid #fbf3dc;
+    padding: 25px 0 29px 0;
+    position: relative;
+}
+
+
+
+.item_1::before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: -4px;
+    height: 4px;
+    width: 0px;
+    background-color: #f38181;
+/* при transition: width .7s ease; значение duration-transition (.7s) возвращало полоску на исходное
+положение (тоесть на width:0;, но в некоторых случаях возвращало не до конца (оставалось 1-2px)) */
+    transition: width .3s ease;
+}
+/* hover пишется всегда перед псевдоэлементом (если мы хотим чтобы он появлялся при наведении
+.item::before:hover - так работать не будет!!!) */
+.item_1:hover::before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: -4px;
+    height: 4px;
+    width: 70px;
+    background-color: #f38181;
+    transition: width .6s ease-out;
+}
+
+.item_2::before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: -4px;
+    height: 4px;
+    width: 0px;
+    background-color: #f38181;
+    transition: width .4s ease;
+}
+
+.item_2:hover::before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: -4px;
+    height: 4px;
+    width: 140px;
+    background-color: #f38181;
+    transition: width .7s ease-out;
+}
+
+.item_3::before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: -4px;
+    height: 4px;
+    width: 0px;
+    background-color: #f38181;
+    transition: width .5s ease;
+}
+
+.item_3:hover::before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: -4px;
+    height: 4px;
+    width: 210px;
+    background-color: #f38181;
+    transition: width .7s ease-out;
+}
+
+.item_4::before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: -4px;
+    height: 4px;
+    width: 0px;
+    background-color: #f38181;
+    transition: width .5s ease;
+}
+
+.item_4:hover::before {
+    content: "";
+    display: block;
+    position: absolute;
+/* top:-4px; потому что задан box-sizing:border-box;, а border сам 4px и не выходит за пределы блока,
+тоесть позиционироание уже не затрагивает border щитая его как бы бордером самого блока, его границей (сложно но как то так) */
+    top: -4px;
+    height: 4px;
+    width: 280px;
+    background-color: #f38181;
+    transition: width .7s ease-out;
+}
+
+/* item number */
+
+.number__item {
+    color: #fbf3dc;
+    font-weight: 700;
+    font-size: 20px;
+}
+
+
+
+
+/* main container-block */
+
+
+/*  ABOUT US */
+
+
+
+.about-us__main {
+    height: 750px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    min-width: 1920px;
+}
+/* TITLE__ABOUT-US BLOCK */
+
+.title__about-us {
+    margin-top: 110px;
+}
+
+.suptitle__title {
+    font-family: 'Kaushan Script', cursive;
+    font-size: 24px;
+    font-weight: normal;
+    color: #333333;
+    margin-bottom: 15px;
+}
+
+.main-title__title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 30px;
+    font-weight: 700;
+    font-style: bold;
+    color: #333333;
+    text-transform: uppercase;
+    
+}
+
+.main-title__title::after {
+    content: "";
+    display: block;
+    height: 3px;
+    width: 60px;
+    background-color: #f38181;
+    margin: 40px auto 49px auto;
+    
+    
+}
+
+.description__title {
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 24px;
+    color: #999999;
+    margin-bottom: 104px;
+}
+
+/* IMAGE-ROW OF ABOUT-US BLOCK */
+
+.image-row__main {
+    display: flex;
+    justify-content: space-between;
+}
+/* .image-block__image-row был создан только для того, чтобы задать ему background, который
+останется после еффекта перехода (по наведении мышкой на картинку).  */
+.image-block__image-row {
+    background-color: #95e1d3;
+}
+
+.item__image-row {
+
+    background-image: url(img/main/bgimg.jpg);
+/* transition для эффекта перехода после :hover (после того как уберем мишку с картинки) */
+    transition: transform .7s ease;
+}
+
+.item__image-row:hover {
+    transform: translate3d(-10px, -10px, 0);
+/* transition для эффекта перехода во время наведения мишы на картинку */
+    transition: transform .7s ease .7s;
+}
+
+ .img-main {
+    transition: 1s;
+    display: block;
+    
+}
+
+ .img-main:hover {
+    opacity: .1;
+ }
+
+ /* BLUE-ROW */
+
+.blue-row__main {
+    height: 270px;
+    background-color: #95e1d3;
+    text-align: center;
+    min-width: 1920px;
+}
+
+.container-flex {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    height: 100%;
+    align-items: center;
+    
+}
+
+.item__blue-row {
+    flex-basis: 240px;
+    height: 100%;
+    border-left: 1px solid #b5eae0;
+    border-right: 1px solid #b5eae0;
+    position: relative;
+}
+
+/* центрируем содержимое блока по центру */
+
+.content__item {
+/* делаем блок с содержимым абсолютным, после чего сдвигаем его с помощью top / left на 50 %
+(тоесть на 50% от верха и на 50% от левой стороны родительского блока- блок с нашим содержимым в данном
+случае не будет по центру, сейчас он только на 50% высоты и 50% ширины родительского блока ) */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+/* Cейчас для подгонки к центру родительского блока нашего контента мы воспользуемся свойством
+transform: translate(-50%, -50%);, чтобы сдвинуть в лево и вверх наш контент на 50% собственной
+ высоты и ширины */
+    transform: translate(-50%, -50%);
+}
+
+.title__item {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 72px;
+    color: #ffffff;
+    margin-bottom: 13px;
+}
+
+.subtitle__item {
+    color: #ffffff;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    text-transform: uppercase;
+/* Переносило текст на новую строку, white-space со значением nowrap предотвразает перенос */
+    white-space: nowrap;
+}
+
+/* AMAZING-SERVICES BLOCK */
+
+.amazing-services__main {
+    height: 650px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    min-width: 1920px;
+    
+/* По мере написания заметил, что лучше пользоваться внутренними отступами (padding),
+а не внешними (margin) так один блок не будет влиять своим отступом на другой, который
+идет под ним. */
+    padding: 110px 0 120px;
+}
+
+
+
+
+
+/* SERVICES-BLOCK inside amazing services block */
+
+.services-block__amazing-services {
+    display: flex;
+    text-align: start;
+    flex-direction: row;
+    padding-bottom: 52px;
+}
+
+.services-block-border__amazing-services {
+    border-bottom: 1px solid #b6b6b6;
+    padding-top: 5px;
+}
+
+.item__services-block {
+/* Задаем всем item одинаковый размер */
+    flex: 1 1 0;
+    
+    position: relative;
+    padding-left: 90px;  
+    padding-right: 21px;
+}
+.services-padding {
+    padding-top: 52px;
+}
+
+/* Позиционируем иконку с помощью absolute */
+.img-icon {
+    position: absolute;
+    top: 3px;
+    left: 30px;
+}
+
+.title__item__services-block {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    color: #595959;
+    text-transform: uppercase;
+}
+
+.description__item__services-block {
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 15px;
+    color: #b6b6b6;
+    line-height: 24px;
+}
+
+/* OFFТOP ПО ТЕМЕ ФИКСА (УЖЕ ПОФИКШЕНО, ОСТАВЛЯЮ ДЛЯ НАГЛЯДНОСТИ) */
+/* иконки при наведении ищезают - пофиксить! */
+/* Нашел проблему, почему иконки пропадали! Выше по коде я просто присвоил свойства не определенным изображениям,
+а просто тэгу img. Присвоил тем изображениям и все заработало как надо - иконки больше не ищезают 
+при наведении :) */
+/* ПРОСТО НУЖНО БЫТЬ ПО ВНИМАТЕЛЬНЕЕ И ОБРАЩАТЬ ВНИМАНИЕ НА ДЕТАЛИ !!!!! */
+
+
+
+/* UNIQUE-DESIGN BLOCK */
+
+.unique-design {
+    height: 878px;
+    text-align: center;
+    background-image: url(img/main/unique-design/bg.jpg);
+/* Применил свойство background-size; cover;, потому что внизу блока была какая-то
+непонятная серая полоска
+ - cover масштабирует изображение как можно больше с сохранением пропорций изображения
+ (изображение не становится сплющенным). Когда блок и изображение имеют разные размеры,
+ изображение обрезается влево / вправо / вниз / вверх. */
+    background-size: cover;
+    min-width: 1920px;
+}
+
+/* container-flex для блоков с строением по типу колонки column (не строки) */
+
+.container-flex-column {
+    display: flex;
+    flex-direction: column;
+    /* без height: 100%; блок с картинками как будто не был в этом блоке (родиткльском)
+    внимание!!! */
+    height: 100%;
+}
+/* картинки смартфонов */
+
+
+.phone-block__unique-design {
+    height: 600px;
+    width: 580px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.main-phone-img {
+   
+    position: absolute;
+    bottom: 0%;
+    right: 5%;
+}
+
+.small-phone-img {
+  
+    position: absolute;
+    bottom: -16%;
+    right: -14%;
+}
+
+
+/* Были некоторые проблемы с позициониррованием картинок, я думаю, что это связано
+с тем, что пустой бэкграунд тоже есть (тоесть размеры картинки включают в себя пустой бекграунд
+и отталкиватся нужно от него, а не от края самого телефона). Ну это так, просто на заметку, чтобы знать,
+что такое когда-то было :))) */
+.container-flex-column .title__unique-design {
+    padding-top: 110px;
+}
+
+
+/* WHAT WHE DO BLOCK */
+
+
+.what-we-do {
+    height: 100%;
+    max-height: 900px;
+    text-align: center;
+    padding-top: 110px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    min-width: 1920px;
+}
+
+
+/* с помощью флексов сделаем блок картинки и блок list одинаковыми по размеру,
+до этого немножко не сходились размеры, list не примыкал к краю контейнера. */
+.what-we-do__item {
+    flex: 1 1 0;
+}
+
+/* Main block WHAT-WE-DO */
+
+.main__what-we-do {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    margin-bottom: 109px;
+}
+
+.img__what-we-do {
+    margin-right: 34px;
+    display: block;
+}
+
+.lists__what-we-do {
+    width: 570px;
+    height: 380px;
+    
+    text-align: start;
+
+}
+
+/* Внимание!!! Так как пока я не знаю как пользоваться JS я сделаю один item в открытом состоянии,
+а сотальных два - в закрытом состоянии, для наглядности (чтобы видеть как оно все выглядит в разных
+состояниях) и потом когда узнаю JS наверное вернусь и доделаю :))) */
+
+/* При активном состоянии виден блок описания */
+.lists__item.active_mode .item__main {
+    display: block;
+}
+
+
+/* селектор потомка псевдоэлемента (сложно, но будет легче :))
+меняем состояние стрелки при активном состоянии (если задумался почему
+этот селектор раотает и перекрывает тот основной, самого псевдоэлемента,
+то вспомни что у селекторов есть приоритет (у классов он 10, у айди 100)) */
+
+/* Состояние стрелки при активном состоянии Item`а */
+.lists__item.active_mode .item__title1:after {
+    transform: rotate(45deg);
+}
+
+.lists__item.margin {
+    margin-top: 15px;
+}
+
+.item__header {
+    border: 1px solid #e5e5e5;
+    position: relative;
+    padding: 19px 10px 19px 60px ;
+}
+
+/* стрелка */
+
+.item__title1:after {
+    content: "";
+    display: block;
+    width: 16px;
+    height: 16px;
+    position: absolute;
+    /* сама стрелка, созданная с помощью порстых border :) */
+    border-top: 3px solid #cccccc;
+    border-left: 3px solid #cccccc;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%) rotate(225deg);
+    
+}
+
+/* Иконка header`а */
+
+.item__imgspecial {
+    position: absolute;
+    left: 16px;
+    top: 50%;
+/* смещаем по вертикальной оси Y */
+    transform: translateY(-50%);
+}
+
+.item__title1 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    font-style: bold;
+    font-weight: 600;
+    color: #666666;
+    text-transform: uppercase;
+    padding: 0;
+}
+
+.item__main {
+    padding: 20px;
+    border: 1px solid #e5e5e5;
+    /* задан border-top transparent ибо у верхенего блока уже есть border
+    и он вместе с нашим боком делает 2 бордера один возле другого (короче говоря
+     линия становится толстой) */
+    border-top: 1px solid transparent;
+    /* При НЕ активном сосотянии блока (класс .active_mode отсутствует)
+    блок описания отсутствует */
+    display: none; 
+    font-style: italic;
+    color: #acacac;
+    line-height: 24px;
+    font-size: 15px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+}
+
+/* COMMENTS BLOCK */
+
+
+.comments {
+    max-height: 290px;
+    height: 100%;
+    background-color: #f8f8f8;
+    position: relative;
+    min-width: 1920px;
+}
+
+
+
+.comments__icon {
+    border: 3px solid #95e1d3;
+    padding: 45px 43px 44px 44px;
+    position: absolute;
+    display: block;
+    top: 50%;
+    left: 100px;
+    transform: translateY(-50%);
+}
+
+/* Стрелки контейнера */
+
+
+/* сделаем их в виде кликабельных ссылок, для того чтобы в будущем сделать 
+полноценный слайд с помощью JS */
+
+/* создаем модтификатор контейнера */
+.container-arrow {
+    position: relative;
+}
+
+
+/* пример построения псевдоэлементов без самого видимого 
+    основного контента */
+
+
+.arrow {
+    /* невилимый текст, который занимает 0 пространства, идеально для
+    псевдоэлемента, в нашем случае */
+    font-size: 0;
+    color: transparent;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.next {
+    right: 30px;
+    transform: rotate(135deg);
+}
+
+.prev {
+    left: 30px;
+    transform: rotate(-45deg);
+}
+
+.arrow::before {
+    content: "";
+    display: block;
+    width: 16px;
+    height: 16px;
+
+    
+    border-top: 3px solid #cccccc;
+    border-left: 3px solid #cccccc;
+}
+
+.comments__text-block {
+    padding: 75px 155px 66px 315px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-style: italic;
+    font-size: 24px;
+    line-height: 36px;
+    color: #999999;
+    
+}
+
+.text-block__line {
+    position: relative;
+}
+
+.line__text {
+    font-family: 'Kaushan Script', cursive;
+    /* Не забывай указывать font-style для шрифта, потому что браузер отображает
+    его по своему алгоритму, может быть более наклоненным или более жирным.
+    Тлесть лучше перестраховатся для 100% правильного отображения */
+    font-style: normal;
+    padding-left: 70px;
+    padding-top: 15px;
+    color: #333333;
+}
+
+.text-block__line:before {
+    content: "";
+    display: block;
+    width: 60px;
+    height: 3px;
+    background-color: #f38181;
+    position: absolute;
+    top: 60%;
+    
+}
+
+
+/* MEET-OUR-TEAM block */
+
+/* главный блок */
+.meet-our-team {
+    height: 1055px;
+    max-height: 100%;
+    text-align: center;
+    position: relative;
+    min-width: 1920px;
+}
+/* ---------------------------------- */
+
+.meet-our-team__title {
+    margin-top: 95px;
+}
+
+
+/* Employers photo`s main block */
+
+
+.employers__item {
+    padding-bottom: 117px;
+}
+
+.meet-our-team__employers {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+}
+
+
+/* Синий бекграунд который остается после смещения картинки */
+.employers-img {
+    background-color: #95e1d3;
+    /* background вылазил за границы самой картинки, поставил картинке display: block; - 
+    помогло, но не полностью. После этого поставил текущему блоку размеры самой картинки
+    и ВУАЛЯ! все работает, ничего не вылазит за края. */
+    
+}
+
+
+/* сама картинка */
+.employers {
+    display: block;
+    
+    
+}
+/* Появление прозрачности при наведении на картинку */
+.employers-img:hover .employers {
+    opacity: .1;
+    transition: opacity .5s ease .5s;
+}
+/* Обратный переход (в состояние блока по умолчанию) */
+.employers-img .employers {
+    transition: opacity .3s ease .3s;
+}
+/* ВАЖНО!!!!
+Просидел пару часов, потому что не мог решить одну проблему, при наведении на блок
+иконок (employers__links) , которые находятся внутри блока employers-img пропадал сам
+эффект перехода opacity самой картинки (employers), будто наведения на обьект уже не было...
+Проблема была вот в чем - для employers (самой картинки) был применен :hover,
+выглядело вот так - employers:hover;. Тоесть получилось так, что при наводе на иконки,
+навода на картинку уже не было!! и пропадал эффект opacity.
+Правильно - через родителя, на котором все держится, чтобы не терять целостности
+всего: 
+employers-img:hover .employers;*/
+
+
+.employers-img:hover .employers-gradient {
+    transform: translate(-15px,-15px);
+    
+    transition: transform .6s ease .4s;
+}
+/* Обратный переход (в состояние блока по умолчанию) */
+.employers-img .employers-gradient {
+    transition: transform .3s ease .3s;
+}
+
+/* Не мог очень долго разобратся!! Тупица!!
+оказывается, если есть вложенный блок в родительский и я хочу чтобы он 
+при наведении (на родительский блок) появлялся, то нужно писать код вот так, как ниже, а не как писал я: 
+.employers-img .employers__links:hover / employers__links:hover */
+.employers-img:hover .employers__links {
+    opacity: 1;
+    transition: opacity .4s ease .9s;
+}
+/* Обратный переход (в состояние блока по умолчанию) */
+.employers-img .employers__links {
+    transition: opacity .3s ease .3s;
+}
+
+.employers-img {
+    position: relative;
+}
+
+.employers-gradient {
+    background: linear-gradient(180deg, #ef8b8a, #fce28a);
+    
+}
+
+/* иконки на картинке */
+.employers__links {
+    z-index: 1;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%) translateX(-50%);
+    left: 50%;
+    opacity: 0;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+
+.links__icon {
+    text-decoration: none;
+    font-size: 30px;
+    padding: 13px 15px;
+    background-color: #fce38a;
+    color: #f38181;
+    border-right: 1px solid #f38181;
+    width: 56px;
+    height: 56px;
+}
+/* смена цвета и фона иконки при наведении мыши на нее */
+.links__icon:hover {
+    background-color: #f38181;
+    color: #ffffff;
+}
+
+/* Подписи под карттинками */
+
+.employers__title {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    color: #333333;
+    text-transform: uppercase;
+    margin-top: 30px;
+}
+
+.employers__subtitle {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    color: #999999;
+    margin-top: 13px;
+}
+
+/* BRANDS block */
+
+.main__brands {
+    height: 100%;
+    max-height: 250px;
+    background-color: #f8f8f8;
+    
+    min-width: 1920px;
+    padding: 65px 10px;
+}
+
+.container-flex1 {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* SOME-OF-OUR-WORK block */
+
+/* main block */
+.main__some-of-our-work {
+    text-align: center;
+    
+    min-width: 1920px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+
+/* пофиксить картинки в блоке Main_some-of-our-work. При уменьшении остается
+незанятое пространство с права.... может причина в том, что я немого ужал размеры картинок? */
+
+/* ПОФИКШЕНО!! Очередная проблема решена!!!!!
+крч, че было, блок, что ниже описан (блок с картинками) имеет определенную ширину 1920px,
+он состоял в общем блоке .container, который в свою очередь имеет максимальную ширину 1200px и 
+margin: 0 auto;, тоесть на отцентровку по середине страницы. Все хорошо было да не очень...
+Тот общий .container выравнивал блок с картинками по центру, но только тот блок не влазил в него
+и выравнивал он его только по одной стороне, другая е торчала за пределами основной оси отцентровки.
+Что я сделал чтобы все поправить - вынес блок с картинками, тот который 1920px за пределы
+нашего общего .container и создал для него свой - .modified-container, уже с максимальным
+размером 1920px. А еще я на автомате написал третьему блоку картинок (.img-block3) flex не column как
+надо было, а row и flex-wrap: wrap;, что додало долполнительного конфуза, потому что картинка постоянно
+сьезжала одна с одной...БОЛЬШЕ ВНИМАНИЯ!!!НЕ ОТВЛЕКАТСЯ ПРИ НАПИСАНИИ КОДА, НАПИСАТЬ, А ПОТОМ ОТВЛЕКАТСЯ!!!!:) */
+.main__some-of-our-work-01 {
+    min-width: 1920px;
+}
+/* _________________________________ */
+
+.some-of-our-work__title {
+    margin-top: 108px;
+}
+
+/* immages-block */
+
+.some-of-our-work__immages-block {
+    display: flex;
+    
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+
+
+
+
+/* 1st img block */
+.img-block1 {
+   
+    max-height: 780px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+/* Разделил img-block1 на два блока внутри, для позиционирования
+картинок через flex (так мне показалось проще) */
+.container-img {
+    display: flex;
+    flex-direction: column;
+}
+
+.container-img__block {
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+/* 2nd img block */
+.img-block2 {
+    
+    max-height: 780px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+/* 3d img block */
+.img-block3 {
+    
+    max-height: 780px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+}
+
+/* Immages effects */
+
+.block__img {
+    position: relative;
+    transition: all .3s ease 0s;
+}
+
+/* hover effect for opacity main img */
+.block__img:hover .immages-block1 {
+    opacity: .1;
+    transition: opacity .6s ease 0s;
+}
+
+/* Изначально хотел применить transition к display (в стоке блок был none, а на
+hover - block... Но потом я вспомнил что transition для display не поддерживается и 
+заменил простым opacity) */
+
+/* hover for opacity of IMG__HOVER block */
+.block__img:hover .img__hover {
+    opacity: 1;
+    transition: all .8s ease .9s;
+}
+
+.img__gradient {
+    background: linear-gradient(180deg, #ef8b8a, #fce28a);
+    
+}
+
+/* the block (not img. file) */
+.img__hover {
+    opacity: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: all .4s ease .6s;
+}
+
+
+/* img inside IMG__HOVER block */
+.hover__img {
+    margin-bottom: 18px;
+}
+
+/* main immage of block */
+
+.immages-block1 {
+    display: block;
+    transition: opacity .6s ease .4s;
+}
+
+/* Text below immage */
+
+.img__title {
+    font-family: 'Montserrat', sans-serif;
+    text-transform: uppercase;
+    font-size: 14px;
+    font-weight: 400;
+    color: #ffffff;
+    margin-bottom: 13px;
+
+}
+
+.img__subtitle {
+    font-size: 15px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    font-style: italic;
+    line-height: 24px;
+    color: #ffffff;
+}
+
+/* ANOTHER ONE COMMENT`S block */
+
+.comments__icon01 {
+    
+    position: absolute;
+    display: block;
+    top: 50%;
+    left: 80px;
+    transform: translateY(-50%);
+}
+
+.comments01 {
+    
+    min-height: 440px;
+    position: relative;
+    min-width: 1920px;
+}
+
+.text-block-text01 {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-style: italic;
+    font-size: 24px;
+    line-height: 36px;
+    color: #999999;
+}
+
+
+/* Вспомнил что такое селектор потомка :) */
+.comments01 .container {
+    padding-top: 99px;
+}
+
+
+/* WHAT-PEOPLE-SAY block */
+
+
+.main__what-people-say {
+    min-width: 1920px;
+    min-height: 830px;
+    background-color: #ffffff;
+    background: url(img/main/what-people-say/bg.png);
+    background-size: cover;
+    padding-top: 110px;
+    text-align: center;
+}
+
+/* ________________________________________________________________ */
+
+/* clients block */
+
+.what-people-say__clients-block {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    margin-bottom: 50px;
+}
+
+/* clients section */
+
+.clients-block__section {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+
+}
+
+/* section item */
+
+.section__item {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    text-align: start;
+    /* даем item`ам одинаковую ширину в блоке  */
+    flex: 1 1 0;
+    /* для позиционирования картинки */
+    position: relative;
+}
+
+/* После присовения .section__item свойства display:flex; картинка которая находилась внутри
+растянулась и стала большой, не помогло присвоение картинки статуса display:block;,
+когда закинул ее внутрь блока, тогда все стало нормально и она приняла свои стандартные
+размеры. Это так на буддущее! */
+
+/* immage */
+.item__img-block {
+    position: absolute;
+    top: 30px;
+    left: 40px;
+}
+
+/* text */
+.item__title {
+    margin: 35px 47px 67px 180px;
+}
+
+/* red line */
+
+.title__position {
+    position: relative;
+}
+
+.title__position::after {
+    content: "";
+    display: block;
+    width: 60px;
+    height: 3px;
+    background-color: #f38181;
+    margin: 18px 0;
+
+}
+
+/* title name */
+
+.title__name {
+    font-size: 14px;
+    font-family: 'Montserrat', sans-serif;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-style: normal;
+    color: #333333;
+    margin-bottom: 11px;
+}
+
+/* title position */
+
+.title__position {
+    font-family: 'Roboto', sans-serif;
+    color: #333333;
+    font-size: 15px;
+    line-height: 24px;
+    font-weight: 300;
+    font-style: italic;
+    
+}
+
+.title__description {
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 15px;
+    line-height: 24px;
+    color: #999999;
+}
+
+
+
+
+/* LATEST BLOG block */
+
+.main__latest-blog {
+    text-align: center;
+    min-width: 1920px;
+    min-height: 770px;
+    padding-top: 110px;
+    padding-bottom: 100px;
+}
+
+/* main section */
+
+
+.latest-blog__main-section {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    text-align: start;
+    justify-content: space-between;
+}
+
+/* item */
+
+.main-section__item {
+    flex-basis: 380px;
+    
+}
+
+/* img квадратик */
+
+.item__photo {
+    position: relative;
+}
+
+.photo__square {
+    min-width: 60px;
+    min-height: 70px;
+    background-color: #95e1d3;
+    position: absolute;
+    bottom: 5%;
+    left: -10px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.square__text1, .square__text2 {
+    color: white;
+}
+
+.square__text1 {
+    font-size: 24px;
+    font-family: 'Montserrat', sans-serif;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-style: normal;
+}
+
+.square__text2 {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    font-style: italic;
+    font-size: 14px;
+    color: #def6f1;
+}
+
+.photo__img {
+    display: block;
+}
+
+/* titles and text */
+
+.main-section__item .item__title1 {
+    color: #4d4d4d;
+    margin: 19px 0px;
+}
+
+.item__description {
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 15px;
+    line-height: 24px;
+    color: #999999;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+/* icons*/
+
+.item__icons {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.icons__item {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+
+.item__eye {
+    align-self: center;
+    margin-right: 5px;
+}
+.icons__item:first-child {
+    margin-right: 20px;
+}
+
+.eye__text {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    font-style: italic;
+    font-size: 15px;
+    line-height: 24px;
+}
+
+
+/* OPEN-MAP block */
+
+
+/* open map main block */
+.main__open-map {
+    min-width: 1920px;
+    min-height: 200px;
+    background: url(img/main/open-map/bg.png);
+    background-size: cover;
+    
+}
+
+.container-modified {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 56px 0;
+}
+
+/* __________________________________________________ */
+
+
+
+.open-map__title {
+    position: relative;
+    font-family: 'Montserrat', sans-serif;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 24px;
+    color: #f38181;
+    margin-bottom: 20px;
+    text-align: center;
+    transition: .4s;
+}
+
+
+
+.open-map__title::after {
+    content: "";
+    display: block;
+    position: absolute;
+    height: 4px;
+    width: 60px;
+    background-color: #f38181;
+    top: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+a {
+    text-decoration: none;
+}
+
+.open-map__title:hover {
+    color: orangered;
+    transition: .7s;
+}
+
+.open-map__img {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-bottom: 14px;
+}
+
+.img__icon {
+    display: block;
+}
+
+
+/* FOOTER block */
+
+footer {
+    background-color: #f8f8f8;
+    
+    min-height: 560px;
+    min-width: 1920px;
+}
+
+
+.footer-block {
+    height: 100%;
+    
+    background-color: #f8f8f8;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    padding-bottom: 70px;
+    border-bottom: 1px solid #e5e5e5;
+    margin-top: 100px;
+}
+
+
+/* BLOCK__MOGO */
+
+
+.block__mogo {
+    width: 454px;
+}
+
+.mogo__title1 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 46px;
+    font-weight: 700;
+    /* padding и margin отсутствовали, но слева как-бы было пару пикселей...
+    пришлось немножко подвинуть в сторону. Может щрифт баганутый? по консоли рили не
+    было отступов */
+    position: relative;
+    left: -3px;
+    top: -10px;
+    color: #cccccc;
+    margin-bottom: 25px;
+    
+}
+
+.mogo__description {
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 15px;
+    line-height: 24px;
+    color: #999999;
+    margin-bottom: 42px;
+}
+
+.mogo__folowers {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    font-size: 15px;
+    padding-bottom: 18px;
+    border-bottom: 1px solid #e5e5e5;
+    margin-bottom: 15px;
+}
+
+.mogo__folowers b {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+}
+
+.mogo__follow-us {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    margin-bottom: 35px;
+}
+
+.img__follow-us {
+    display: block;
+}
+
+.follow-us__text {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    font-style: italic;
+    color: #999999;
+    line-height: 24px;
+    margin-right: 24px;
+}
+
+/* follow-us ICONS */
+
+.follow-us__icons {
+    display: grid;
+    grid-auto-flow: column;
+    column-gap: 16px;
+}
+
+/* mogo-FORM */
+
+.form__item {
+    display: grid;
+    grid-auto-flow: column;
+    max-width: 380px;
+}
+/* PLACEHOLDER как изменять !!!!!!!!!!! */
+
+.input__email::placeholder {
+    color: #cccccc;
+}
+
+.input__email {
+    width: 228px;
+    
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 15px;
+    line-height: 24px;
+    border: 1px solid #cccccc;
+    padding: 7px 0 7px 7px
+}
+
+.btn__subscribe {
+    width: 151px;
+    color: #ffffff;
+    font-size: 14px;
+    background-color: #95e1d3;
+    border: none;
+    cursor: pointer;
+    text-transform: uppercase;
+}
+
+/* BLOCK-BLOGS */
+
+.block__blogs {
+    max-width: 337px;
+}
+
+/* title */
+
+.blogs__title {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    font-style: bold;
+    color: #3a3a3a;
+    text-transform: uppercase;
+    margin-bottom: 40px;
+}
+
+.blogs__main {
+    display: grid;
+    grid-template: 1fr 1fr 1fr / 1fr;
+    row-gap: 32px;
+}
+
+/* Item */
+
+.main__item {
+    display: grid;
+    grid-template: 1fr / 120px 1fr;
+    column-gap: 20px;
+    
+}
+
+/* item text */
+
+.item__text {
+    display: grid;
+}
+
+.item__title2 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 12px;
+    font-style: bold;
+    color: #3a3a3a;
+    text-transform: uppercase;
+    white-space: nowrap;
+    
+}
+
+/* link */
+
+.text__link {
+    align-self: end;
+}
+
+.text__link:hover {
+    text-decoration: underline;
+}
+
+.item__text1 {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    font-style: italic;
+    color: #999999;
+    line-height: 24px;
+    font-size: 13px;
+    margin-top: 5px;
+    
+}
+
+/* .blogs__img { 
+    display: block;
+}
+grid - элементы ведут себя как блоки, даже если перед этим они были строчными!!!
+*/
+
+
+/* BLOCK-INSTAGRAM */
+
+.block__instagram {
+    width: 271px;
+}
+
+.instagram__photos {
+    margin-bottom: 23px;
+}
+
+.instagram__text a {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    font-style: italic;
+    font-size: 13px;
+    line-height: 24px;
+}
+
+.instagram__text a:hover {
+    text-decoration: underline;
+}
+
+/* photos block */
+
+.instagram__photos {
+    display: grid;
+    grid-template: 1fr 1fr 1fr / 1fr 1fr 1fr;
+    row-gap: 2px;
+}
+
+.instagram__title {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    font-style: bold;
+    color: #3a3a3a;
+    text-transform: uppercase;
+    margin-bottom: 40px;
+}
+
+/* img */
+
+.item__instagram {
+    display: block;
+}
+
+/* COPYRIGHT */
+
+.copyright {
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 12px;
+    font-style: bold;
+    padding: 24px 0;    
+}
+
+.copyright__red {
+    color: #f5b3b3;
+}
+
+
+/* МОЙ ПЕРВЫЙ ПРОЭКТ ПО ВЕРСТКЕ ЗАВЕРШЕЕЕЕЕЕЕЕЕЕН!!!!!!!!!!!!!!!!!! */
+
+
+
+
+
+
+/* Центровать нормально весь контент сайта....думаю все так-же flex`ами, походу
+придется немного переписать корень сайта
+ПРОБЛЕМУ РЕШИЛ: 
+добавил всем дочерним блокам в блоке main-block минимальную ширину 1920px, поскольку у меня
+монитор не 1920px то появилась горизонтальная полоска скролла, может при подгонке под адаптив
+полоска пропадет...посмотрим, но одно точно сделано - весь контент отцентрован. */
+
+
+
+/* ОФФТОП
+В начале проекта осталась одна вещица, а именно бекграунд первого блока. Он имеет правильный цвет, но
+не имеет самого бекграунда (картинки). Сделат все по госту и продолжать верстать следующий блок :)) */
